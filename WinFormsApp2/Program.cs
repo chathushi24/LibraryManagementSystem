@@ -18,13 +18,6 @@ namespace WinFormsApp2
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new login());
-
-            //connecting the database with GUI
-            //var database = new MongoClient("mongodb://localhost:27017").GetDatabase("LibraryDatabase");
-            //var collections = database.GetCollection<Book>("Books");
-
-            //Book book = new Book("2344", "ai mokada", "mage nama", "234-3432-23", "5", "2005", true);
-            //collections.Add(book);
         }
     }
 }
