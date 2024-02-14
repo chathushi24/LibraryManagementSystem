@@ -18,6 +18,30 @@ namespace WinFormsApp2
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new login());
+        }
+
+        static void consoleApplication()
+        {
+            do
+            {
+                User user;
+                Console.Clear();
+                Console.WriteLine("Library Management System!");
+                Console.WriteLine();
+                Console.Write("\tUsername: ");
+                string username = Console.ReadLine();
+                Console.Write("\tPassword: ");
+                string password = Console.ReadLine();
+                Console.WriteLine();
+               
+                if ()
+                {
+
+                }
+
+
+            }
+            while (true);
 
         }
     }
