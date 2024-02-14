@@ -109,14 +109,14 @@
             // 
             RBbookid.Location = new Point(579, 200);
             RBbookid.Name = "RBbookid";
-            RBbookid.Size = new Size(171, 31);
+            RBbookid.Size = new Size(248, 31);
             RBbookid.TabIndex = 4;
             // 
             // RBisbn
             // 
             RBisbn.Location = new Point(579, 271);
             RBisbn.Name = "RBisbn";
-            RBisbn.Size = new Size(171, 31);
+            RBisbn.Size = new Size(248, 31);
             RBisbn.TabIndex = 5;
             // 
             // RBbtn

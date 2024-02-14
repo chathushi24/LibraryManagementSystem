@@ -1,14 +1,14 @@
-﻿class Book
+﻿public class Book
 {
     string id;
     string author;
     string title;
     string iSBN;
     int copies;
-    string publishedyear;
+    int publishedyear;
     bool availability;
 
-    public Book(string id, string author, string title, string iSBN, string publishedyear, bool availability, int copies = 1)
+    public Book(string id, string author, string title, string iSBN, int publishedyear, bool availability, int copies = 1)
     {
         this.id = id;
         this.author = author;
@@ -49,7 +49,7 @@
         set { copies = value; }
     }
 
-    public string Publishedyear
+    public int Publishedyear
     {
         get { return publishedyear; }
         set { publishedyear = value; }

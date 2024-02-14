@@ -1,10 +1,13 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-abstract class User
+[BsonDiscriminator(RootClass = true)]
+[BsonKnownTypes(typeof(Member), typeof(Admin))]
+public abstract class User
 { 
     public string Id { get; set; }
     public string FirstName { get; set; }
@@ -22,9 +25,16 @@ abstract class User
         Password = password;
     }
 
-    public bool userlogin()
+    public bool userlogin(string username, string password)
     {
-        return true;
+        if (this.Username == username && this.Password == password)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public abstract void borrowBook();

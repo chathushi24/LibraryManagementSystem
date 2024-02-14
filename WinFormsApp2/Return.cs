@@ -19,8 +19,8 @@ namespace WinFormsApp2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MemberLogin memberLogin = new MemberLogin();
-            memberLogin.Show();
+            //MemberLogin memberLogin = new MemberLogin();
+            //memberLogin.Show();
             this.Close();
 
         }

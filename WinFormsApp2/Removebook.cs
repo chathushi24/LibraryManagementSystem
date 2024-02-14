@@ -12,21 +12,52 @@ namespace WinFormsApp2
 {
     public partial class Removebook : Form
     {
-        public Removebook()
+        Library library;
+
+        public Removebook(Library library)
         {
             InitializeComponent();
+            this.library = library;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Librarian librarian = new Librarian();
-            librarian.Show();
-            this.Close();
+            //Librarian librarian = new Librarian();
+            //librarian.Show();
+            //this.Close();
         }
 
         private void removebtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Successfully removed the book","Removed book",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            // Remove space from the text box input
+            string isbn = this.RBisbn.Text.Trim();
+            string id = this.RBbookid.Text.Trim();
+            
+            // Create book object
+            Book book = libraryDatabase.getRecord<Book>("ISBN", isbn, "Books");
+            
+            // Check whether the book is found
+            if (book != null)
+            {
+                // Match given isbn and id with the book's id and isbn before deleting the book
+                if (isbn == book.ISBN && id == book.Id)
+                {
+                    // call remove book method from library object(Library class's object)
+                    library.removeBook(isbn);
+
+                    // Clear test boxes
+                    this.RBisbn.Clear();
+                    this.RBbookid.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("ISBN and ID not matched!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Book not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }

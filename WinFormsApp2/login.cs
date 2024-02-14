@@ -4,8 +4,11 @@ namespace WinFormsApp2
 {
     public partial class login : Form
     {
+        Library library;
+
         public login()
         {
+            library = new Library();
             InitializeComponent();
         }
 
@@ -14,28 +17,40 @@ namespace WinFormsApp2
             string Username = txtUsername.Text;
             string Password = txtPassword.Text;
 
-            if (IsCorrect(Username, Password))
-            {
-                MemberLogin mainform = new MemberLogin();
-                mainform.Show();
-                Visible = false;
-            }
-            if (admin (Username , Password))
-            {
-                Librarian librarian = new Librarian();
-                librarian.Show();
-                Visible = false;
-            }
-        }
+            // Get the target user from database
+            var user = libraryDatabase.getRecord<User>("Username", Username, "Users");
 
-        private bool IsCorrect(string username, string password)
-        {
-            return (username == "chathu" && password == "2005");
-        }
+            // validate the user and user login using users login method
+            if (user == null)
+            {
+                MessageBox.Show("Invalid Username or Password!", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-        private bool admin (string username, string password)
-        {
-            return ( username == "admin" &&  password == "0000");
+            }
+            else
+            {
+                if (user.userlogin(Username, Password))
+                {
+                    if (user.IsAdmin)
+                    {
+                        // Typecast user to an Admin type and pass
+                        Librarian librarian = new Librarian(user as Admin, library);
+                        librarian.Show();
+                        Visible = false;
+                    }
+                    // else redirect to the member's form
+                    else
+                    {
+                        // Typecast user to a member type and pass
+                        MemberLogin mainform = new MemberLogin(user as Member, library);
+                        mainform.Show();
+                        Visible = false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Password!", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
         
     }

@@ -38,16 +38,15 @@
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
-            Addbookid = new TextBox();
             ABauthor = new TextBox();
             ABtitle = new TextBox();
             ABisbn = new TextBox();
             AByes = new CheckBox();
-            ABno = new CheckBox();
             copies = new TextBox();
             ABdate = new DateTimePicker();
             button1 = new Button();
             ABbtn = new Button();
+            Addbookid = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -154,13 +153,6 @@
             label8.TabIndex = 7;
             label8.Text = "Published year :";
             // 
-            // Addbookid
-            // 
-            Addbookid.Location = new Point(543, 59);
-            Addbookid.Name = "Addbookid";
-            Addbookid.Size = new Size(296, 31);
-            Addbookid.TabIndex = 8;
-            // 
             // ABauthor
             // 
             ABauthor.Location = new Point(543, 107);
@@ -185,22 +177,12 @@
             // AByes
             // 
             AByes.AutoSize = true;
-            AByes.Location = new Point(543, 274);
+            AByes.Location = new Point(552, 274);
             AByes.Name = "AByes";
             AByes.Size = new Size(63, 29);
             AByes.TabIndex = 12;
             AByes.Text = "Yes";
             AByes.UseVisualStyleBackColor = true;
-            // 
-            // ABno
-            // 
-            ABno.AutoSize = true;
-            ABno.Location = new Point(641, 274);
-            ABno.Name = "ABno";
-            ABno.Size = new Size(62, 29);
-            ABno.TabIndex = 13;
-            ABno.Text = "No";
-            ABno.UseVisualStyleBackColor = true;
             // 
             // copies
             // 
@@ -211,6 +193,7 @@
             // 
             // ABdate
             // 
+            ABdate.Format = DateTimePickerFormat.Short;
             ABdate.Location = new Point(576, 391);
             ABdate.Name = "ABdate";
             ABdate.Size = new Size(278, 31);
@@ -240,6 +223,13 @@
             ABbtn.UseVisualStyleBackColor = false;
             ABbtn.Click += ABbtn_Click;
             // 
+            // Addbookid
+            // 
+            Addbookid.Location = new Point(543, 59);
+            Addbookid.Name = "Addbookid";
+            Addbookid.Size = new Size(296, 31);
+            Addbookid.TabIndex = 8;
+            // 
             // AddBook
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -249,7 +239,6 @@
             Controls.Add(button1);
             Controls.Add(ABdate);
             Controls.Add(copies);
-            Controls.Add(ABno);
             Controls.Add(AByes);
             Controls.Add(ABisbn);
             Controls.Add(ABtitle);
@@ -284,15 +273,14 @@
         private Label label6;
         private Label label7;
         private Label label8;
-        private TextBox Addbookid;
         private TextBox ABauthor;
         private TextBox ABtitle;
         private TextBox ABisbn;
         private CheckBox AByes;
-        private CheckBox ABno;
         private TextBox copies;
         private DateTimePicker ABdate;
         private Button button1;
         private Button ABbtn;
+        private TextBox Addbookid;
     }
 }

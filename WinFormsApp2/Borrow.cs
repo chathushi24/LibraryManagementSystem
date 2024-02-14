@@ -19,8 +19,8 @@ namespace WinFormsApp2
 
         private void Bback_Click(object sender, EventArgs e)
         {
-            MemberLogin memberLogin = new MemberLogin();
-            memberLogin.Show();
+            //MemberLogin memberLogin = new MemberLogin();
+            //memberLogin.Show();
             this.Close();
         }
 

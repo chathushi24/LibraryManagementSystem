@@ -12,8 +12,12 @@ namespace WinFormsApp2
 {
     public partial class Librarian : Form
     {
-        public Librarian()
+        Admin librarian;
+        Library library;
+        public Librarian(Admin librarian, Library library)
         {
+            this.librarian = librarian;
+            this.library = library;
             InitializeComponent();
         }
 
@@ -26,24 +30,21 @@ namespace WinFormsApp2
 
         private void AddbookBtn_Click(object sender, EventArgs e)
         {
-            AddBook addBook = new AddBook();
-            addBook.Show();
-            this.Close();
+            AddBook addBook = new AddBook(librarian, library);
+            addBook.ShowDialog();
         }
 
         private void RemovebookBtn_Click(object sender, EventArgs e)
         {
-            Removebook removebook = new Removebook();
-            removebook.Show();
-            this.Close();
+            Removebook removebook = new Removebook(library);
+            removebook.ShowDialog();
 
         }
 
         private void AddmemberBtn_Click(object sender, EventArgs e)
         {
-            AddMember addMember = new AddMember();
-            addMember.Show();
-            this.Close();
+            AddMember addMember = new AddMember(librarian);
+            addMember.ShowDialog();
         }
 
         private void RemoveMBtn_Click(object sender, EventArgs e)

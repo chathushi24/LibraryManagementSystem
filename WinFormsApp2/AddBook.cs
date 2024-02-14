@@ -12,22 +12,58 @@ namespace WinFormsApp2
 {
     public partial class AddBook : Form
     {
-        public AddBook()
+        Admin librarian;
+        Library library;
+        public AddBook(Admin librarian, Library library)
         {
             InitializeComponent();
             this.button1.Visible = true;
+            this.librarian = librarian;
+            this.library = library;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Librarian librarian = new Librarian();
-            librarian.Show();
+            //Librarian librarian = new Librarian();
+            //librarian.Show();
             this.Close();
         }
 
         private void ABbtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Successfully added the book !", "Book Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            try
+            {
+                string id = Addbookid.Text.Trim();
+                string author = ABauthor.Text.Trim();
+                string title = ABtitle.Text.Trim();
+                string isbn = ABisbn.Text.Trim();
+                bool availability = true;
+                int copies = int.Parse(this.copies.Text);
+                int publishedYr = ABdate.Value.Year;
+
+                if (AByes.Checked)
+                {
+                    availability = true;
+                }
+                else
+                {
+                    availability = false;
+                }
+
+                Book book = new Book(id, author, title, isbn, publishedYr, availability, copies);
+                library.addNewBook(book);
+
+                Addbookid.Clear();
+                ABauthor.Clear();
+                ABtitle.Clear();
+                ABisbn.Clear();
+                this.copies.Clear();
+            }
+            catch
+            {
+                MessageBox.Show("Successfully added the book !", "Book Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
     }
 }

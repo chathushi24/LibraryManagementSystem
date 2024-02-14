@@ -19,8 +19,8 @@ namespace WinFormsApp2
 
         private void IBBtn_Click(object sender, EventArgs e)
         {
-            Librarian librarian = new Librarian();
-            librarian.Show();
+            //Librarian librarian = new Librarian();
+            //librarian.Show();
             this.Close();
         }
 

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WinFormsApp2;
 
-class Library
+public class Library
 {
     List<Book> bookcollection;
     List<Member> membercollection;
@@ -32,18 +32,20 @@ class Library
         
     //}
 
-    public void addNewBook()
+    public void addNewBook(Book book)
     {
-
+        // Add given book object into the database using static method
+        libraryDatabase.insertRecord<Book>(book, "Books");
     }
 
     public void editBookDetails()
     {
-
+        //libraryDatabase.deleteRecord<>
     }
 
-    public void removeBook()
+    public void removeBook(string isbn)
     {
-
+        Book book = libraryDatabase.getRecord<Book>("ISBN", isbn, "Books");
+        libraryDatabase.deleteRecord<Book>(book.Id, "Books");
     }
 }

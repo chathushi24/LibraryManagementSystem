@@ -12,8 +12,13 @@ namespace WinFormsApp2
 {
     public partial class MemberLogin : Form
     {
-        public MemberLogin()
+        Member member;
+        Library library;
+
+        public MemberLogin(Member member, Library library)
         {
+            this.member = member;
+            this.library = library;
             InitializeComponent();
         }
 
