@@ -48,7 +48,7 @@ namespace WinFormsApp2
                 }
                 else
                 {
-                    MessageBox.Show("", "Removed Member", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Removed Member", "Successful !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
             }

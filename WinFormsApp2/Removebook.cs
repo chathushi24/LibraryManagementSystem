@@ -24,7 +24,7 @@ namespace WinFormsApp2
         {
             //Librarian librarian = new Librarian();
             //librarian.Show();
-            //this.Close();
+            this.Close();
         }
 
         private void removebtn_Click(object sender, EventArgs e)
