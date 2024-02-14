@@ -31,21 +31,20 @@ namespace WinFormsApp2
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            search search = new search();
-            search.Show();
-            this.Close();
+            search Search = new search(library.getAllBooks());
+            Search.ShowDialog();
         }
 
         private void BorrowBtn_Click(object sender, EventArgs e)
         {
-            Borrow borrow = new Borrow();
+            Issue borrow = new Issue(member);
             borrow.Show();
             this.Close();
         }
 
         private void returnBtn_Click(object sender, EventArgs e)
         {
-            Return returnbook = new Return();
+            Return returnbook = new Return(member);
             returnbook.Show();
             this.Close();
         }

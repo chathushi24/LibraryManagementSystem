@@ -8,7 +8,7 @@ public class Member : User
 {
     public List<Book> BorrowedBooks { get; set; }
 
-    public Member (string id, string firstName, string lastName, string username, string password): 
+    public Member(string id, string firstName, string lastName, string username, string password) :
         base(id, firstName, lastName, username, password)
     {
         this.Id = id;
@@ -17,20 +17,7 @@ public class Member : User
         this.Username = username;
         this.Password = password;
         this.IsAdmin = false;
+        BorrowedBooks = new List<Book>();
     }
 
-    public override void borrowBook()
-    {
-  
-    }
-
-    public override void returnBook()
-    {
-        
-    }
-
-    //public List<Book> showBorrowedBooks()
-    //{
-
-    //}
- }
+}

@@ -38,7 +38,6 @@ namespace WinFormsApp2
                 string title = ABtitle.Text.Trim();
                 string isbn = ABisbn.Text.Trim();
                 bool availability = true;
-                int copies = int.Parse(this.copies.Text);
                 int publishedYr = ABdate.Value.Year;
 
                 if (AByes.Checked)
@@ -50,19 +49,23 @@ namespace WinFormsApp2
                     availability = false;
                 }
 
-                Book book = new Book(id, author, title, isbn, publishedYr, availability, copies);
+                Book book = new Book(id, author, title, isbn, publishedYr);
                 library.addNewBook(book);
 
                 Addbookid.Clear();
                 ABauthor.Clear();
                 ABtitle.Clear();
                 ABisbn.Clear();
-                this.copies.Clear();
             }
             catch
             {
                 MessageBox.Show("Successfully added the book !", "Book Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
+        }
+
+        private void AddBook_Load(object sender, EventArgs e)
+        {
 
         }
     }

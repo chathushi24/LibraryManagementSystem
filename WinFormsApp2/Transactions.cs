@@ -12,16 +12,40 @@ namespace WinFormsApp2
 {
     public partial class Transactions : Form
     {
-        public Transactions()
+        Admin librarian;
+        DataTable datatable = new DataTable();
+
+        public Transactions(Admin librarian)
         {
             InitializeComponent();
+            this.librarian = librarian;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Librarian librarian = new Librarian();
-            //librarian.Show();
             this.Close();
+        }
+
+        private void Transactions_Load(object sender, EventArgs e)
+        {
+            List<WinFormsApp2.Transaction> transactions = new List<WinFormsApp2.Transaction>();
+            transactions = librarian.readTransactions();
+
+            datatable.Columns.Add("ID");
+            datatable.Columns.Add("Activity");
+            datatable.Columns.Add("Member");
+            datatable.Columns.Add("Book");
+
+            if (transactions.Count > 0)
+            {
+                foreach (WinFormsApp2.Transaction transaction in transactions)
+                {
+                    datatable.Rows.Add(transaction.Id, transaction.TransactionName, transaction.Member.FirstName.ToLowerInvariant, transaction.Book.Title);
+                }
+            }
+
+            dataGridView1.DataSource = datatable;
+            
         }
     }
 }

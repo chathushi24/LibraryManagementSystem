@@ -7,13 +7,13 @@ using WinFormsApp2;
 
 public class Library
 {
-    List<Book> bookcollection;
     List<Member> membercollection;
 
+    // All Books in Library
     public List <Book> Bookcollection
     {
-        get { return bookcollection; }
-        set { bookcollection = value; }
+        // Get book records from database and return
+        get { return libraryDatabase.getAllBookRecords(); }
     }
 
     public List<Member> Membercollection
@@ -38,14 +38,17 @@ public class Library
         libraryDatabase.insertRecord<Book>(book, "Books");
     }
 
-    public void editBookDetails()
-    {
-        //libraryDatabase.deleteRecord<>
-    }
-
     public void removeBook(string isbn)
     {
+        // filter book from library database searching for given isbn
         Book book = libraryDatabase.getRecord<Book>("ISBN", isbn, "Books");
+        // Delete filtered book
         libraryDatabase.deleteRecord<Book>(book.Id, "Books");
+    }
+
+    public List<Book> getAllBooks()
+    {
+        // Returun all books
+        return Bookcollection;
     }
 }

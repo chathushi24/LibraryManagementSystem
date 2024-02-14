@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WinFormsApp2
-{ 
+{
     public partial class Librarian : Form
     {
         Admin librarian;
@@ -49,30 +49,33 @@ namespace WinFormsApp2
 
         private void RemoveMBtn_Click(object sender, EventArgs e)
         {
-            RemoveMember removeMember = new RemoveMember();
-            removeMember.Show();
-            this.Close();
+            RemoveMember removeMember = new RemoveMember(librarian);
+            removeMember.ShowDialog();
         }
 
         private void issueBtn_Click(object sender, EventArgs e)
         {
-            Issue issue = new Issue();
-            issue.Show();
-            this.Close();
+            Issue issue = new Issue(librarian);
+            issue.ShowDialog();
         }
 
-        private void updateMBtn_Click(object sender, EventArgs e)
+        private void returnBBtn_Click(object sender, EventArgs e)
         {
-            UpdateMember updateMember = new UpdateMember();
-            updateMember.Show();
-            this.Close();
+
         }
 
         private void Transactionbtn_Click(object sender, EventArgs e)
         {
-            Transactions transactions = new Transactions();
-            transactions.Show();
-            this.Close();
+            Transactions transactions = new Transactions(librarian);
+            transactions.ShowDialog();
         }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            search Search = new search(library.getAllBooks());
+            Search.ShowDialog();
+        }
+
+
     }
 }

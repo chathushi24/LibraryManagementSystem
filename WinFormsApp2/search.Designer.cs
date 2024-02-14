@@ -33,15 +33,13 @@
             label1 = new Label();
             pictureBox1 = new PictureBox();
             label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            Sname = new TextBox();
-            Sauthor = new TextBox();
-            Stitle = new TextBox();
-            Sdate = new DateTimePicker();
+            isbnLable = new Label();
+            title = new TextBox();
+            isbn = new TextBox();
             backBtn = new Button();
             SBbtn = new Button();
+            id = new TextBox();
+            lable = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -52,8 +50,9 @@
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox1);
             panel1.Location = new Point(1, -2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(284, 586);
+            panel1.Size = new Size(199, 352);
             panel1.TabIndex = 0;
             // 
             // label1
@@ -61,9 +60,10 @@
             label1.AutoSize = true;
             label1.BackColor = SystemColors.Control;
             label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(63, 323);
+            label1.Location = new Point(44, 194);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(167, 32);
+            label1.Size = new Size(112, 21);
             label1.TabIndex = 1;
             label1.Text = "Search Books ";
             // 
@@ -71,9 +71,10 @@
             // 
             pictureBox1.BackColor = SystemColors.Control;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(86, 181);
+            pictureBox1.Location = new Point(60, 109);
+            pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(110, 87);
+            pictureBox1.Size = new Size(77, 52);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -83,77 +84,48 @@
             label2.AutoSize = true;
             label2.BackColor = SystemColors.Control;
             label2.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(417, 128);
+            label2.Location = new Point(292, 133);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(83, 30);
+            label2.Size = new Size(46, 20);
             label2.TabIndex = 1;
-            label2.Text = "Name :";
+            label2.Text = "Title: ";
             // 
-            // label3
+            // isbnLable
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(417, 198);
-            label3.Name = "label3";
-            label3.Size = new Size(94, 30);
-            label3.TabIndex = 2;
-            label3.Text = "Author :";
+            isbnLable.AutoSize = true;
+            isbnLable.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            isbnLable.Location = new Point(292, 203);
+            isbnLable.Margin = new Padding(2, 0, 2, 0);
+            isbnLable.Name = "isbnLable";
+            isbnLable.Size = new Size(50, 20);
+            isbnLable.TabIndex = 3;
+            isbnLable.Text = "ISBN :";
             // 
-            // label4
+            // title
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(417, 266);
-            label4.Name = "label4";
-            label4.Size = new Size(68, 30);
-            label4.TabIndex = 3;
-            label4.Text = "Title :";
+            title.Location = new Point(387, 131);
+            title.Margin = new Padding(2);
+            title.Name = "title";
+            title.Size = new Size(212, 23);
+            title.TabIndex = 5;
             // 
-            // label5
+            // isbn
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(417, 335);
-            label5.Name = "label5";
-            label5.Size = new Size(172, 30);
-            label5.TabIndex = 4;
-            label5.Text = "Published date :";
-            // 
-            // Sname
-            // 
-            Sname.Location = new Point(553, 132);
-            Sname.Name = "Sname";
-            Sname.Size = new Size(301, 31);
-            Sname.TabIndex = 5;
-            // 
-            // Sauthor
-            // 
-            Sauthor.Location = new Point(553, 200);
-            Sauthor.Name = "Sauthor";
-            Sauthor.Size = new Size(301, 31);
-            Sauthor.TabIndex = 6;
-            // 
-            // Stitle
-            // 
-            Stitle.Location = new Point(553, 272);
-            Stitle.Name = "Stitle";
-            Stitle.Size = new Size(301, 31);
-            Stitle.TabIndex = 7;
-            // 
-            // Sdate
-            // 
-            Sdate.Location = new Point(608, 335);
-            Sdate.Name = "Sdate";
-            Sdate.Size = new Size(300, 31);
-            Sdate.TabIndex = 8;
+            isbn.Location = new Point(387, 202);
+            isbn.Margin = new Padding(2);
+            isbn.Name = "isbn";
+            isbn.Size = new Size(212, 23);
+            isbn.TabIndex = 7;
             // 
             // backBtn
             // 
             backBtn.BackColor = SystemColors.GradientActiveCaption;
             backBtn.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            backBtn.Location = new Point(816, 504);
+            backBtn.Location = new Point(571, 302);
+            backBtn.Margin = new Padding(2);
             backBtn.Name = "backBtn";
-            backBtn.Size = new Size(112, 34);
+            backBtn.Size = new Size(79, 20);
             backBtn.TabIndex = 9;
             backBtn.Text = "Back";
             backBtn.UseVisualStyleBackColor = false;
@@ -163,30 +135,49 @@
             // 
             SBbtn.BackColor = SystemColors.HotTrack;
             SBbtn.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            SBbtn.Location = new Point(661, 504);
+            SBbtn.Location = new Point(463, 302);
+            SBbtn.Margin = new Padding(2);
             SBbtn.Name = "SBbtn";
-            SBbtn.Size = new Size(112, 34);
+            SBbtn.Size = new Size(79, 20);
             SBbtn.TabIndex = 10;
-            SBbtn.Text = "Done";
+            SBbtn.Text = "Search";
             SBbtn.UseVisualStyleBackColor = false;
             SBbtn.Click += SBbtn_Click;
             // 
+            // id
+            // 
+            id.Location = new Point(387, 166);
+            id.Margin = new Padding(2);
+            id.Name = "id";
+            id.Size = new Size(212, 23);
+            id.TabIndex = 12;
+            // 
+            // lable
+            // 
+            lable.AutoSize = true;
+            lable.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lable.Location = new Point(292, 168);
+            lable.Margin = new Padding(2, 0, 2, 0);
+            lable.Name = "lable";
+            lable.Size = new Size(32, 20);
+            lable.TabIndex = 11;
+            lable.Text = "ID: ";
+            // 
             // search
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(960, 582);
+            ClientSize = new Size(672, 350);
+            Controls.Add(id);
+            Controls.Add(lable);
             Controls.Add(SBbtn);
             Controls.Add(backBtn);
-            Controls.Add(Sdate);
-            Controls.Add(Stitle);
-            Controls.Add(Sauthor);
-            Controls.Add(Sname);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
+            Controls.Add(isbn);
+            Controls.Add(title);
+            Controls.Add(isbnLable);
             Controls.Add(label2);
             Controls.Add(panel1);
+            Margin = new Padding(2);
             Name = "search";
             Text = "search";
             panel1.ResumeLayout(false);
@@ -202,14 +193,12 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private TextBox Sname;
-        private TextBox Sauthor;
-        private TextBox Stitle;
-        private DateTimePicker Sdate;
+        private Label isbnLable;
+        private TextBox title;
+        private TextBox isbn;
         private Button backBtn;
         private Button SBbtn;
+        private TextBox id;
+        private Label lable;
     }
 }

@@ -44,14 +44,15 @@ static class libraryDatabase
 
     }
 
-    public static List<Book> getAllRecords()
+    public static List<Book> getAllBookRecords()
     {
         return _database.GetCollection<Book>("Books").Find(_ => true).ToList();
     }
 
-    public static Book getBookByISBN(string isbn)
+    public static List<T> getAllRecords<T>(string collection)
     {
-        return _database.GetCollection<Book>("Books").Find(book => book.ISBN == isbn).FirstOrDefault();
+        // Return all the objects from database, given collection
+        return _database.GetCollection<T>(collection).Find(_ => true).ToList(); 
     }
 
     public static T getRecord<T>(string filter, string keyword, string collectionName)
@@ -60,5 +61,27 @@ static class libraryDatabase
         var FILTER = Builders<T>.Filter.Eq(filter, keyword);
         // return filtered results
         return _database.GetCollection<T>(collectionName).Find(FILTER).FirstOrDefault();
+    }
+
+    public static void updateRecord<T>(string id, string collection, T update)
+    {
+        try
+        {
+            // Filter database to find the record to update
+            var filter = Builders<T>.Filter.Eq("Id", id);
+            
+            // Replace the object with the given object in the particular table in the database
+            _database.GetCollection<T>(collection).ReplaceOne(filter, update);
+
+            // Display success message
+            MessageBox.Show("Record Updated!", "Successful!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+        catch (Exception e)
+        {
+            // Get error message and display error in a message box
+            MessageBox.Show($"Update Failed!\n\n{e.Message}", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
     }
 }

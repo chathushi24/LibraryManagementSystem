@@ -37,13 +37,14 @@ public abstract class User
         }
     }
 
-    public abstract void borrowBook();
-
-    public abstract void returnBook();
-
-    public void recordtransaction()
+    public void borrowBook(Book book, Member member)
     {
+        book.borrowBook(member);
+    }
 
+    public void returnBook(Book book, Member member)
+    {
+        book.returnBook(member);
     }
 }
 

@@ -17,21 +17,6 @@ public class Admin : User
         this.IsAdmin = true;
     }
 
-    public override void borrowBook()
-    {
-
-    }
-
-    public override void returnBook()
-    {
-
-    }
-
-    //public List<Member> getAllMembers()
-    //{
-        
-    //}
-
     public void addNewMember(Member member)
     {
         // Call static method to add a new member to database
@@ -44,8 +29,8 @@ public class Admin : User
         libraryDatabase.deleteRecord<User>(id ,"Users");
     }
 
-    public void editMemberDetails()
+    public List<WinFormsApp2.Transaction> readTransactions()
     {
-
+        return libraryDatabase.getAllRecords<WinFormsApp2.Transaction>("Transactions");
     }
 }
