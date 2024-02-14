@@ -37,13 +37,13 @@
             RemovebookBtn = new Button();
             AddmemberBtn = new Button();
             RemoveMBtn = new Button();
-            updateMBtn = new Button();
+            returnBBtn = new Button();
             issueBtn = new Button();
             panel2 = new Panel();
             pictureBox2 = new PictureBox();
             LogoutLBtn = new Button();
             Transactionbtn = new Button();
-            search = new Button();
+            searchBtn = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -97,7 +97,7 @@
             AddbookBtn.Font = new Font("Candara", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AddbookBtn.Image = Properties.Resources.icons8_add_book_50;
             AddbookBtn.ImageAlign = ContentAlignment.TopCenter;
-            AddbookBtn.Location = new Point(303, 231);
+            AddbookBtn.Location = new Point(98, 230);
             AddbookBtn.Name = "AddbookBtn";
             AddbookBtn.Size = new Size(148, 108);
             AddbookBtn.TabIndex = 2;
@@ -112,7 +112,7 @@
             RemovebookBtn.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             RemovebookBtn.Image = (Image)resources.GetObject("RemovebookBtn.Image");
             RemovebookBtn.ImageAlign = ContentAlignment.TopCenter;
-            RemovebookBtn.Location = new Point(98, 231);
+            RemovebookBtn.Location = new Point(305, 231);
             RemovebookBtn.Name = "RemovebookBtn";
             RemovebookBtn.Size = new Size(148, 108);
             RemovebookBtn.TabIndex = 3;
@@ -151,25 +151,25 @@
             RemoveMBtn.UseVisualStyleBackColor = false;
             RemoveMBtn.Click += RemoveMBtn_Click;
             // 
-            // updateMBtn
+            // returnBBtn
             // 
-            updateMBtn.BackColor = SystemColors.HotTrack;
-            updateMBtn.Font = new Font("Candara", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            updateMBtn.Image = (Image)resources.GetObject("updateMBtn.Image");
-            updateMBtn.ImageAlign = ContentAlignment.TopCenter;
-            updateMBtn.Location = new Point(305, 377);
-            updateMBtn.Name = "updateMBtn";
-            updateMBtn.Size = new Size(148, 108);
-            updateMBtn.TabIndex = 6;
-            updateMBtn.Text = "Return Book";
-            updateMBtn.TextAlign = ContentAlignment.BottomCenter;
-            updateMBtn.UseVisualStyleBackColor = false;
-            updateMBtn.Click += updateMBtn_Click;
+            returnBBtn.BackColor = SystemColors.HotTrack;
+            returnBBtn.Font = new Font("Candara", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            returnBBtn.Image = (Image)resources.GetObject("returnBBtn.Image");
+            returnBBtn.ImageAlign = ContentAlignment.TopCenter;
+            returnBBtn.Location = new Point(305, 377);
+            returnBBtn.Name = "returnBBtn";
+            returnBBtn.Size = new Size(148, 108);
+            returnBBtn.TabIndex = 6;
+            returnBBtn.Text = "Return Book";
+            returnBBtn.TextAlign = ContentAlignment.BottomCenter;
+            returnBBtn.UseVisualStyleBackColor = false;
+            returnBBtn.Click += updateMBtn_Click;
             // 
             // issueBtn
             // 
             issueBtn.BackColor = SystemColors.HotTrack;
-            issueBtn.Font = new Font("Candara", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            issueBtn.Font = new Font("Candara", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             issueBtn.Image = (Image)resources.GetObject("issueBtn.Image");
             issueBtn.ImageAlign = ContentAlignment.TopCenter;
             issueBtn.Location = new Point(523, 377);
@@ -228,30 +228,30 @@
             Transactionbtn.UseVisualStyleBackColor = false;
             Transactionbtn.Click += Transactionbtn_Click;
             // 
-            // search
+            // searchBtn
             // 
-            search.BackColor = SystemColors.HotTrack;
-            search.Font = new Font("Candara", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            search.Image = (Image)resources.GetObject("search.Image");
-            search.ImageAlign = ContentAlignment.TopCenter;
-            search.Location = new Point(98, 377);
-            search.Name = "search";
-            search.Size = new Size(148, 108);
-            search.TabIndex = 10;
-            search.Text = "Search Book";
-            search.TextAlign = ContentAlignment.BottomCenter;
-            search.UseVisualStyleBackColor = false;
+            searchBtn.BackColor = SystemColors.HotTrack;
+            searchBtn.Font = new Font("Candara", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            searchBtn.Image = (Image)resources.GetObject("searchBtn.Image");
+            searchBtn.ImageAlign = ContentAlignment.TopCenter;
+            searchBtn.Location = new Point(98, 377);
+            searchBtn.Name = "searchBtn";
+            searchBtn.Size = new Size(148, 108);
+            searchBtn.TabIndex = 10;
+            searchBtn.Text = "Search Book";
+            searchBtn.TextAlign = ContentAlignment.BottomCenter;
+            searchBtn.UseVisualStyleBackColor = false;
             // 
             // Librarian
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(977, 687);
-            Controls.Add(search);
+            Controls.Add(searchBtn);
             Controls.Add(Transactionbtn);
             Controls.Add(panel2);
             Controls.Add(issueBtn);
-            Controls.Add(updateMBtn);
+            Controls.Add(returnBBtn);
             Controls.Add(RemoveMBtn);
             Controls.Add(AddmemberBtn);
             Controls.Add(RemovebookBtn);
@@ -279,12 +279,12 @@
         private Button RemovebookBtn;
         private Button AddmemberBtn;
         private Button RemoveMBtn;
-        private Button updateMBtn;
+        private Button returnBBtn;
         private Button issueBtn;
         private Panel panel2;
         private PictureBox pictureBox2;
         private Button LogoutLBtn;
         private Button Transactionbtn;
-        private Button search;
+        private Button searchBtn;
     }
 }
