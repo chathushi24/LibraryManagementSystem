@@ -32,6 +32,7 @@ static class libraryDatabase
     {
         try
         {
+            // Filtering database collection to find the record
             var filter = Builders<T>.Filter.Eq("Id", id);
             _database.GetCollection<T>(collection).DeleteOne(filter);
             MessageBox.Show("Record Deleted!", "Successful!", MessageBoxButtons.OK, MessageBoxIcon.Information);

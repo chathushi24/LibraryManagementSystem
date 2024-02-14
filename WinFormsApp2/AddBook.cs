@@ -24,8 +24,6 @@ namespace WinFormsApp2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Librarian librarian = new Librarian();
-            //librarian.Show();
             this.Close();
         }
 
@@ -33,6 +31,7 @@ namespace WinFormsApp2
         {
             try
             {
+                // Remove white space from inputs
                 string id = Addbookid.Text.Trim();
                 string author = ABauthor.Text.Trim();
                 string title = ABtitle.Text.Trim();
@@ -49,23 +48,28 @@ namespace WinFormsApp2
                     availability = false;
                 }
 
-                Book book = new Book(id, author, title, isbn, publishedYr);
-                library.addNewBook(book);
+                // Check whether the inputs are validated
+                if (id == "" || author == "" || title == "" || isbn == "")
+                {
+                    MessageBox.Show("Please enter valid details!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    // Create book object
+                    Book book = new Book(id, author, title, isbn, publishedYr);
+                    library.addNewBook(book);
 
-                Addbookid.Clear();
-                ABauthor.Clear();
-                ABtitle.Clear();
-                ABisbn.Clear();
+                    Addbookid.Clear();
+                    ABauthor.Clear();
+                    ABtitle.Clear();
+                    ABisbn.Clear();
+                }
+
             }
             catch
             {
-                MessageBox.Show("Successfully added the book !", "Book Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please enter valid details!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-        }
-
-        private void AddBook_Load(object sender, EventArgs e)
-        {
 
         }
     }

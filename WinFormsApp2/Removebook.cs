@@ -32,7 +32,7 @@ namespace WinFormsApp2
             // Remove space from the text box input
             string isbn = this.RBisbn.Text.Trim();
             string id = this.RBbookid.Text.Trim();
-            
+
             // Create book object
             Book book = libraryDatabase.getRecord<Book>("ISBN", isbn, "Books");
             

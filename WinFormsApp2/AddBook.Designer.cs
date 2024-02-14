@@ -251,7 +251,6 @@
             Margin = new Padding(2, 2, 2, 2);
             Name = "AddBook";
             Text = "AddBook";
-            Load += AddBook_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

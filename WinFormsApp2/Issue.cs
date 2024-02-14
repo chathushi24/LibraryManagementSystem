@@ -29,7 +29,7 @@ namespace WinFormsApp2
 
         private void Issuebtn_Click(object sender, EventArgs e)
         {
-            List<Book> books = new List<Book>();
+            List<Book> books = libraryDatabase.getAllBookRecords();
             Member member;
 
             // Remove additional white space and get input from text boxes

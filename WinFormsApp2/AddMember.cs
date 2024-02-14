@@ -32,19 +32,27 @@ namespace WinFormsApp2
             string lname = this.firstname.Text.Trim();
             string uname = this.AMusername.Text.Trim();
             string password = this.password.Text.Trim();
+            
+            if (id == "" || fname == "" || lname == "" || uname == "" || password == "")
+            {
+                MessageBox.Show("Please enter valid details!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                // Create member object
+                Member member = new Member(id, fname, lname, uname, password);
 
-            // Create member object
-            Member member = new Member(id,fname, lname, uname, password);
+                // Call Librarian call method to delete member
+                librarian.addNewMember(member);
 
-            // Call Librarian call method to delete member
-            librarian.addNewMember(member);
+                // Clear texts
+                this.AMmemid.Clear();
+                this.lastname.Clear();
+                this.firstname.Clear();
+                this.AMusername.Clear();
+                this.password.Clear();
+            }
 
-            // Clear texts
-            this.AMmemid.Clear();
-            this.lastname.Clear();
-            this.firstname.Clear();
-            this.AMusername.Clear();
-            this.password.Clear();
 
         }
     }
