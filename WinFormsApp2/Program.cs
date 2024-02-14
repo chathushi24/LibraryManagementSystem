@@ -20,6 +20,7 @@ namespace WinFormsApp2
             {
                 try
                 {
+                    // Main menu
                     Console.Clear();
                     Console.WriteLine("Library Management System");
                     Console.WriteLine();
@@ -30,8 +31,10 @@ namespace WinFormsApp2
                     Console.Write("Select an option: ");
                     option = int.Parse(Console.ReadLine());
 
+                    // Check user choice to run gui or console application
                     switch (option)
                     {
+                        // Run GUI Application
                         case 1:
                             // To customize application configuration such as set high DPI settings or default font,
                             // see https://aka.ms/applicationconfiguration.
@@ -40,6 +43,7 @@ namespace WinFormsApp2
                             break;
 
                         case 2:
+                            // Run console application
                             consoleApplication();
                             break;
 
@@ -59,11 +63,14 @@ namespace WinFormsApp2
             while (option != 3);
         }
 
+        // Static method to run console application
         static void consoleApplication()
         {
             do
             {
+                // Clear console
                 Console.Clear();
+                // Get users from library database
                 List<User> users = libraryDatabase.getAllRecords<User>("Users");
                 Console.WriteLine("Library Management System!");
                 Console.WriteLine();
@@ -73,11 +80,14 @@ namespace WinFormsApp2
                 string password = Console.ReadLine();
                 Console.WriteLine();
 
+                // Get target user to login
                 User user = users.Find(u => u.Username == username);
                 if (user != null)
                 {
+                    // Check whether the user name and password is correct
                     if (user.userlogin(username, password))
                     {
+                        // If user is librarian open librarians menu
                         if (user.IsAdmin)
                         {
                             librarianInterface(user as Admin);
