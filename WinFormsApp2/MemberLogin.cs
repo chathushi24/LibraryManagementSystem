@@ -38,15 +38,26 @@ namespace WinFormsApp2
         private void BorrowBtn_Click(object sender, EventArgs e)
         {
             Issue borrow = new Issue(member);
-            borrow.Show();
-            this.Close();
+            borrow.ShowDialog();
         }
 
         private void returnBtn_Click(object sender, EventArgs e)
         {
             Return returnbook = new Return(member);
-            returnbook.Show();
-            this.Close();
+            returnbook.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (member.BorrowedBooks.Count <= 0)
+            {
+                MessageBox.Show("Borrowed Book list is empty!");
+            }
+            else
+            {
+                borrowedBooks borrowedBooksForm = new borrowedBooks(member);
+                borrowedBooksForm.ShowDialog();
+            }
         }
     }
 }

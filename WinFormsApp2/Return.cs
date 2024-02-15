@@ -52,7 +52,6 @@ namespace WinFormsApp2
                 if (bookResultByISBN != null)
                 {
                     user.returnBook(bookResultByISBN, member);
-                    MessageBox.Show("Successfully Returned the book !", " Return book", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 // If book not found show message
                 else

@@ -28,8 +28,8 @@ namespace WinFormsApp2
         {
             // Get text values
             string id = this.AMmemid.Text.Trim();
-            string fname = this.lastname.Text.Trim();
-            string lname = this.firstname.Text.Trim();
+            string lname = this.lastname.Text.Trim();
+            string fname = this.firstname.Text.Trim();
             string uname = this.AMusername.Text.Trim();
             string password = this.password.Text.Trim();
             

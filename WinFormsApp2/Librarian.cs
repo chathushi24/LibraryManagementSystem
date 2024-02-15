@@ -61,7 +61,8 @@ namespace WinFormsApp2
 
         private void returnBBtn_Click(object sender, EventArgs e)
         {
-
+            Return returnBook = new Return(librarian);
+            returnBook.ShowDialog();
         }
 
         private void Transactionbtn_Click(object sender, EventArgs e)

@@ -19,7 +19,12 @@ static class libraryDatabase
         {
 
             _database.GetCollection<T>(collection).InsertOne(record);
-            MessageBox.Show("Record Added!", "Successful!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // omit the message if a transaction record is added
+            if (!(record is WinFormsApp2.Transaction))
+            {
+                MessageBox.Show("Record Added!", "Successful!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
 
         }
         catch
@@ -53,7 +58,7 @@ static class libraryDatabase
     public static List<T> getAllRecords<T>(string collection)
     {
         // Return all the objects from database, given collection
-        return _database.GetCollection<T>(collection).Find(_ => true).ToList(); 
+        return _database.GetCollection<T>(collection).Find(_ => true).ToList();
     }
 
     public static T getRecord<T>(string filter, string keyword, string collectionName)
@@ -70,12 +75,10 @@ static class libraryDatabase
         {
             // Filter database to find the record to update
             var filter = Builders<T>.Filter.Eq("Id", id);
-            
+
             // Replace the object with the given object in the particular table in the database
             _database.GetCollection<T>(collection).ReplaceOne(filter, update);
 
-            // Display success message
-            MessageBox.Show("Record Updated!", "Successful!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
         catch (Exception e)

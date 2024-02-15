@@ -39,6 +39,7 @@
             panel2 = new Panel();
             pictureBox2 = new PictureBox();
             LogoutBtn = new Button();
+            button1 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -51,7 +52,7 @@
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox1);
             panel1.Location = new Point(-1, -1);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(699, 33);
             panel1.TabIndex = 0;
@@ -71,7 +72,7 @@
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(6, 0);
-            pictureBox1.Margin = new Padding(2, 2, 2, 2);
+            pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(53, 33);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -96,8 +97,8 @@
             SearchBtn.Font = new Font("Cambria", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             SearchBtn.Image = (Image)resources.GetObject("SearchBtn.Image");
             SearchBtn.ImageAlign = ContentAlignment.TopCenter;
-            SearchBtn.Location = new Point(136, 137);
-            SearchBtn.Margin = new Padding(2, 2, 2, 2);
+            SearchBtn.Location = new Point(86, 137);
+            SearchBtn.Margin = new Padding(2);
             SearchBtn.Name = "SearchBtn";
             SearchBtn.Size = new Size(78, 70);
             SearchBtn.TabIndex = 2;
@@ -112,8 +113,8 @@
             BorrowBtn.Font = new Font("Cambria", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BorrowBtn.Image = (Image)resources.GetObject("BorrowBtn.Image");
             BorrowBtn.ImageAlign = ContentAlignment.TopCenter;
-            BorrowBtn.Location = new Point(295, 137);
-            BorrowBtn.Margin = new Padding(2, 2, 2, 2);
+            BorrowBtn.Location = new Point(233, 137);
+            BorrowBtn.Margin = new Padding(2);
             BorrowBtn.Name = "BorrowBtn";
             BorrowBtn.Size = new Size(85, 70);
             BorrowBtn.TabIndex = 3;
@@ -128,8 +129,8 @@
             returnBtn.Font = new Font("Cambria", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             returnBtn.Image = (Image)resources.GetObject("returnBtn.Image");
             returnBtn.ImageAlign = ContentAlignment.TopCenter;
-            returnBtn.Location = new Point(472, 137);
-            returnBtn.Margin = new Padding(2, 2, 2, 2);
+            returnBtn.Location = new Point(387, 137);
+            returnBtn.Margin = new Padding(2);
             returnBtn.Name = "returnBtn";
             returnBtn.Size = new Size(78, 70);
             returnBtn.TabIndex = 4;
@@ -144,7 +145,7 @@
             panel2.Controls.Add(pictureBox2);
             panel2.Controls.Add(LogoutBtn);
             panel2.Location = new Point(-1, 316);
-            panel2.Margin = new Padding(2, 2, 2, 2);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
             panel2.Size = new Size(699, 34);
             panel2.TabIndex = 5;
@@ -154,7 +155,7 @@
             pictureBox2.BackColor = SystemColors.GradientActiveCaption;
             pictureBox2.Image = Properties.Resources.exit;
             pictureBox2.Location = new Point(585, 6);
-            pictureBox2.Margin = new Padding(2, 2, 2, 2);
+            pictureBox2.Margin = new Padding(2);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(29, 20);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -165,7 +166,7 @@
             // 
             LogoutBtn.BackColor = SystemColors.GradientActiveCaption;
             LogoutBtn.Location = new Point(612, 6);
-            LogoutBtn.Margin = new Padding(2, 2, 2, 2);
+            LogoutBtn.Margin = new Padding(2);
             LogoutBtn.Name = "LogoutBtn";
             LogoutBtn.Size = new Size(78, 20);
             LogoutBtn.TabIndex = 0;
@@ -173,18 +174,36 @@
             LogoutBtn.UseVisualStyleBackColor = false;
             LogoutBtn.Click += LogoutBtn_Click;
             // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.HotTrack;
+            button1.Font = new Font("Cambria", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = SystemColors.ButtonHighlight;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.TopCenter;
+            button1.Location = new Point(534, 137);
+            button1.Margin = new Padding(2);
+            button1.Name = "button1";
+            button1.Size = new Size(78, 70);
+            button1.TabIndex = 6;
+            button1.Text = "View Borrowed Books";
+            button1.TextAlign = ContentAlignment.BottomCenter;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // MemberLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(698, 350);
+            Controls.Add(button1);
             Controls.Add(panel2);
             Controls.Add(returnBtn);
             Controls.Add(BorrowBtn);
             Controls.Add(SearchBtn);
             Controls.Add(label2);
             Controls.Add(panel1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "MemberLogin";
             Text = "MemberLogin";
             panel1.ResumeLayout(false);
@@ -208,5 +227,6 @@
         private Panel panel2;
         private Button LogoutBtn;
         private PictureBox pictureBox2;
+        private Button button1;
     }
 }

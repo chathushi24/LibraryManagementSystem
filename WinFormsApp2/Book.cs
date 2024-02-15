@@ -80,6 +80,8 @@ public class Book
                 // Use name space before class name to avoid the name violation of system.Transaction
                 WinFormsApp2.Transaction transaction = new WinFormsApp2.Transaction(member, this, "Borrow Book");
                 libraryDatabase.insertRecord<WinFormsApp2.Transaction>(transaction, "Transactions");
+                MessageBox.Show("Successfully issued the book !", " Issue book", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
             else
             {
@@ -121,6 +123,9 @@ public class Book
             // Use name space before class name to avoid the name violation of system.Transaction
             WinFormsApp2.Transaction transaction = new WinFormsApp2.Transaction(member, this, "Return Book");
             libraryDatabase.insertRecord<WinFormsApp2.Transaction>(transaction, "Transactions");
+
+            MessageBox.Show("Successfully Returned the book !", " Return book", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
         }
     }

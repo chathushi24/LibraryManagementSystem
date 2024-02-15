@@ -55,7 +55,6 @@ namespace WinFormsApp2
                 if (bookResultByISBN != null)
                 {
                     user.borrowBook(bookResultByISBN, member);
-                    MessageBox.Show("Successfully issued the book !", " Issue book", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 // if book by id is not null issue book
                 else if (bookResultById != null)

@@ -40,7 +40,7 @@ namespace WinFormsApp2
             {
                 foreach (WinFormsApp2.Transaction transaction in transactions)
                 {
-                    datatable.Rows.Add(transaction.Id, transaction.TransactionName, transaction.Member.FirstName.ToLowerInvariant, transaction.Book.Title);
+                    datatable.Rows.Add(transaction.Id, transaction.TransactionName, transaction.Member.FirstName, transaction.Book.Title);
                 }
             }
 
