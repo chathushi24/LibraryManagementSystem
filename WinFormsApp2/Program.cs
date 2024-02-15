@@ -15,52 +15,59 @@ namespace WinFormsApp2
         [STAThread]
         static void Main()
         {
-            int option = 0;
-            do
-            {
-                try
-                {
-                    // Main menu
-                    Console.Clear();
-                    Console.WriteLine("Library Management System");
-                    Console.WriteLine();
-                    Console.WriteLine("\t1. Windows Form Application");
-                    Console.WriteLine("\t2. Console Application");
-                    Console.WriteLine("\t3. Exit");
-                    Console.WriteLine();
-                    Console.Write("Select an option: ");
-                    option = int.Parse(Console.ReadLine());
+            Member member = new Member("0001", "firstName", "lastName", "member", "0000");
+            Admin admin = new Member("0000", "adminFname", "adminLname", "admin", "0000");
+            Book book = new Book("B0001", "Author", "Title", "ISBN0001", 2015);
 
-                    // Check user choice to run gui or console application
-                    switch (option)
-                    {
-                        // Run GUI Application
-                        case 1:
-                            // To customize application configuration such as set high DPI settings or default font,
-                            // see https://aka.ms/applicationconfiguration.
-                            ApplicationConfiguration.Initialize();
-                            Application.Run(new login());
-                            break;
+            libraryDatabase.insertRecord<User>(member, "Users");
+            libraryDatabase.insertRecord<User>(admin, "Users");
+            libraryDatabase.insertRecord<Book>(book, "Books");
+            //int option = 0;
+            //do
+            //{
+            //    try
+            //    {
+            //        // Main menu
+            //        Console.Clear();
+            //        Console.WriteLine("Library Management System");
+            //        Console.WriteLine();
+            //        Console.WriteLine("\t1. Windows Form Application");
+            //        Console.WriteLine("\t2. Console Application");
+            //        Console.WriteLine("\t3. Exit");
+            //        Console.WriteLine();
+            //        Console.Write("Select an option: ");
+            //        option = int.Parse(Console.ReadLine());
 
-                        case 2:
-                            // Run console application
-                            consoleApplication();
-                            break;
+            //        // Check user choice to run gui or console application
+            //        switch (option)
+            //        {
+            //            // Run GUI Application
+            //            case 1:
+            //                // To customize application configuration such as set high DPI settings or default font,
+            //                // see https://aka.ms/applicationconfiguration.
+            //                ApplicationConfiguration.Initialize();
+            //                Application.Run(new login());
+            //                break;
 
-                        case 3:
-                            break;
-                    }
-                }
-                catch
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("Invalid Option!");
-                    Console.ReadKey();
-                }
+            //            case 2:
+            //                // Run console application
+            //                consoleApplication();
+            //                break;
+
+            //            case 3:
+            //                break;
+            //        }
+            //    }
+            //    catch
+            //    {
+            //        Console.WriteLine();
+            //        Console.WriteLine("Invalid Option!");
+            //        Console.ReadKey();
+            //    }
 
 
-            }
-            while (option != 3);
+            //}
+            //while (option != 3);
         }
 
         // Static method to run console application
