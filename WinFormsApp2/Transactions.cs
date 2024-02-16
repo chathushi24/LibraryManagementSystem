@@ -33,6 +33,7 @@ namespace WinFormsApp2
 
             datatable.Columns.Add("ID");
             datatable.Columns.Add("Activity");
+            datatable.Columns.Add("Date");
             datatable.Columns.Add("Member");
             datatable.Columns.Add("Book");
 
@@ -40,7 +41,7 @@ namespace WinFormsApp2
             {
                 foreach (WinFormsApp2.Transaction transaction in transactions)
                 {
-                    datatable.Rows.Add(transaction.Id, transaction.TransactionName, transaction.Member.FirstName, transaction.Book.Title);
+                    datatable.Rows.Add(transaction.Id, transaction.TransactionName, transaction.Date, transaction.Member.FirstName, transaction.Book.Title);
                 }
             }
 

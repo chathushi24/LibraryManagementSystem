@@ -22,8 +22,6 @@ namespace WinFormsApp2
 
         private void IBBtn_Click(object sender, EventArgs e)
         {
-            //Librarian librarian = new Librarian();
-            //librarian.Show();
             this.Close();
         }
 
@@ -72,6 +70,14 @@ namespace WinFormsApp2
             {
                 MessageBox.Show("Member not found", "Issue Book", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+            }
+        }
+
+        private void Issue_Load(object sender, EventArgs e)
+        {
+            if (user is Member)
+            {
+                this.headerText.Text = "Borrow Books";
             }
         }
     }
