@@ -225,6 +225,10 @@ namespace WinFormsApp2
                             Console.WriteLine($"Availability: {result.Availability.ToString()}");
 
                         }
+                        else
+                        {
+                            Console.WriteLine("Book not found!");
+                        }
                         Console.ReadKey();
                         break;
 
@@ -245,6 +249,10 @@ namespace WinFormsApp2
                             Console.WriteLine($"Availability: {result.Availability.ToString()}");
 
                         }
+                        else
+                        {
+                            Console.WriteLine("Book not found!");
+                        }
                         Console.ReadKey();
                         break;
 
@@ -264,6 +272,10 @@ namespace WinFormsApp2
                             Console.WriteLine($"Author: {result.Author}");
                             Console.WriteLine($"Availability: {result.Availability.ToString()}");
 
+                        }
+                        else
+                        {
+                            Console.WriteLine("Book not found!");
                         }
                         Console.ReadKey();
                         break;
@@ -373,7 +385,17 @@ namespace WinFormsApp2
             Console.WriteLine();
             Console.Write("\tISBN: ");
             string isbn = Console.ReadLine();
-            library.removeBook(isbn);
+            
+
+            if (isbn.Trim() == "")
+            {
+                Console.WriteLine("Please enter valid Details!");
+                Console.ReadKey();
+            }
+            else
+            {
+                library.removeBook(isbn);
+            }
         }
 
         static void addMember(Admin librarian)

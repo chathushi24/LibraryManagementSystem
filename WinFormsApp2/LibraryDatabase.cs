@@ -39,8 +39,16 @@ static class libraryDatabase
         {
             // Filtering database collection to find the record
             var filter = Builders<T>.Filter.Eq("Id", id);
-            _database.GetCollection<T>(collection).DeleteOne(filter);
-            MessageBox.Show("Record Deleted!", "Successful!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var result = _database.GetCollection<T>(collection).DeleteOne(filter);
+
+            if (result.DeletedCount > 0)
+            {
+                MessageBox.Show("Record Deleted!", "Successful!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Record not found!", "Failed!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
         }
         catch

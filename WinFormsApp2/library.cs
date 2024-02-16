@@ -10,7 +10,7 @@ public class Library
     List<Member> membercollection;
 
     // All Books in Library
-    public List <Book> Bookcollection
+    public List<Book> Bookcollection
     {
         // Get book records from database and return
         get { return libraryDatabase.getAllBookRecords(); }
@@ -29,7 +29,7 @@ public class Library
 
     //public List <Member> getAllMember() 
     //{
-        
+
     //}
 
     public void addNewBook(Book book)
@@ -42,8 +42,15 @@ public class Library
     {
         // filter book from library database searching for given isbn
         Book book = libraryDatabase.getRecord<Book>("ISBN", isbn, "Books");
-        // Delete filtered book
-        libraryDatabase.deleteRecord<Book>(book.Id, "Books");
+        if (book == null)
+        {
+            MessageBox.Show("Book not found!");
+        }
+        else
+        {
+            // Delete filtered book
+            libraryDatabase.deleteRecord<Book>(book.Id, "Books");
+        }
     }
 
     public List<Book> getAllBooks()
