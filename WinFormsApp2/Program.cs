@@ -308,8 +308,9 @@ namespace WinFormsApp2
                     Console.WriteLine();
                     Console.WriteLine("\t1. Search Books");
                     Console.WriteLine("\t2. Return Books");
-                    Console.WriteLine("\t3. Issue Books");
-                    Console.WriteLine("\t4. Exit");
+                    Console.WriteLine("\t3. Borrow Books");
+                    Console.WriteLine("\t4. View Borrowed Books");
+                    Console.WriteLine("\t5. Exit");
                     Console.WriteLine();
                     Console.Write("Select an option: ");
                     option = int.Parse(Console.ReadLine());
@@ -328,6 +329,9 @@ namespace WinFormsApp2
                             issueBook(member);
                             break;
                         case 4:
+                            viewBorrowedBooks(member);
+                            break;
+                        case 5:
                             break;
                         default:
                             Console.WriteLine("Invalid option!");
@@ -341,7 +345,7 @@ namespace WinFormsApp2
                     Console.ReadKey();
                 }
             }
-            while (option != 4);
+            while (option != 5);
         }
 
         static void addBook(Library library)
@@ -562,6 +566,33 @@ namespace WinFormsApp2
                     Console.ReadKey();
                 }
             }
+        }
+
+        static void viewBorrowedBooks(Member member)
+        {
+            Console.Clear();
+            Console.WriteLine($"{member.FirstName} : Borrowed Books");
+            Console.WriteLine();
+            List<Book> borrowedBooks = member.BorrowedBooks;
+
+            if (borrowedBooks.Count <= 0)
+            {
+                Console.WriteLine("Member not borrowed any book!");
+            }
+            else
+            {
+                foreach(Book book in borrowedBooks)
+                {
+                    Console.WriteLine($"ID: {book.Id}");
+                    Console.WriteLine($"Title: {book.Title}");
+                    Console.WriteLine($"ISBN: {book.ISBN}");
+                    Console.WriteLine($"Author: {book.Author}");
+                    Console.WriteLine($"Published Year: {book.Publishedyear}");
+                    Console.WriteLine();
+                }
+            }
+
+            Console.ReadKey();
         }
     }
 }
